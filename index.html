@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Week 2 Assignment</title>
+  <link href="a2stylesheet.css" rel="stylesheet" type="text/css"></link>
+</head>
+<body>
+
+<h1>Week 2 Assignment | SubReddit Search</h1>
+<h2>Created by: Zakkary Smith</h2>
+
+
+<form id="subreddit-link">
+  <input id="search" type="search" placeholder="Search Here" name="search" required>
+  <input type="submit" id="submit"></input>
+</form> 
+
+<div id="results"></div>
+
+<template id="reddit-template">
+	{{#each listing.data.children}}
+	<div>
+		<h3>Title: <a href="{{data.url}}" target="_blank">{{data.title}}</a></h3>
+		<p>Score: <span>{{data.score}}</span></p>
+		<p>Subscribers: <span>{{subreddit data.subreddit_subscribers}}</span></p>
+		<p>Comments: {{#if data.num_comments}}			
+			<span>{{subreddit data.num_comments}}</span>
+			{{else}}
+			<span>No comments.</span>
+		   	{{/if}}
+		 </p>
+	</div>
+	{{/each}}
+</template>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- handlebars-v4.1.2.js has to be put before the main.js file -->
+<script src="handlebars-v4.1.2.js"></script>
+<script src="a2main.js"></script>
+<script src="purify.min.js"></script>
+<script src="moment.js"></script>
+
+
+</body>
+</html>
